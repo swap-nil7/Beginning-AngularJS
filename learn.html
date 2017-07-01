@@ -4,13 +4,40 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
-<body ng-controller="StoreController as store">
+<body style="margin: 10px" ng-controller="StoreController as store">
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<div ng-repeat="product in store.products">
-		<h1> {{product.name}} </h1>
-		<h2> ${{product.price}} </h2>
-		<p> {{product.description}} </p>
+		<h3> 
+		{{product.name}}
+		<img ng-src="{{product.images}}" height=50 width=50>
+		<em> {{product.price | currency}} </em>
+		 </h3>
+		<section ng-controller="PanelController as panel">
+			<ul class="nav nav-pills">
+				<li ng-class="{ active:panel.isSelected(1) }">
+					<a href ng-click="panel.selectTab(1)">Descriptions</a>
+				</li>
+				<li ng-class="{ active:panel.isSelected(2) }">
+					<a href ng-click="panel.selectTab(2)">Specifications</a>
+				</li>
+				<li ng-class="{ active:panel.isSelected(3) }">
+					<a href ng-click="panel.selectTab(3)">Reviews</a>
+				</li>
+			</ul>
+			<div class="panel" ng-show="panel.isSelected(1)">
+				<h4>Description</h4>
+				<p>{{product.description}}</p>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(2)">
+				<h4>Specifications</h4>
+				<p>Specifications not available</p>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(3)">
+				<h4>Reviews</h4>
+				<p>Reviews not available</p>
+			</div>
+		</section>
 		<button ng-show="product.canPurchase">Add to Cart</button>
 	</div>
 </body>

@@ -22,6 +22,13 @@
 		};
 	});
 
+	app.directive('productTitle', function(){
+		return{
+			restrict: 'E',
+			templateUrl: 'product.html',
+		};
+	});
+
 	var gems = [
 		{
 			name: 'Swap',

@@ -4,7 +4,10 @@
 	<title></title>
 </head>
 <body>
-	<img ng-src="{{product.images}}" height=50 width=50>
-	<em> {{product.price | currency}} </em>
+	<h3>
+		{{product.name}}
+		<img ng-src="{{product.images}}" height=50 width=50>
+		<em> {{product.price | currency}} </em>
+	</h3>
 </body>
 </html>

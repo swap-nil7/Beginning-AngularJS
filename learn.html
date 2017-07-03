@@ -9,8 +9,7 @@
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<div ng-repeat="product in store.products">
-		<h3 ng-include="'product.html'"> 
-		 </h3>
+		<product-title></product-title>
 		<section ng-controller="PanelController as panel">
 			<ul class="nav nav-pills">
 				<li ng-class="{ active:panel.isSelected(1) }">

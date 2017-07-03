@@ -9,10 +9,7 @@
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 	<div ng-repeat="product in store.products">
-		<h3> 
-		{{product.name}}
-		<img ng-src="{{product.images}}" height=50 width=50>
-		<em> {{product.price | currency}} </em>
+		<h3 ng-include="'product.html'"> 
 		 </h3>
 		<section ng-controller="PanelController as panel">
 			<ul class="nav nav-pills">

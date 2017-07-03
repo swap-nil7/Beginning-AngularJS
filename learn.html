@@ -10,55 +10,7 @@
 	<script type="text/javascript" src="app.js"></script>
 	<div ng-repeat="product in store.products">
 		<product-title></product-title>
-		<section ng-controller="PanelController as panel">
-			<ul class="nav nav-pills">
-				<li ng-class="{ active:panel.isSelected(1) }">
-					<a href ng-click="panel.selectTab(1)">Descriptions</a>
-				</li>
-				<li ng-class="{ active:panel.isSelected(2) }">
-					<a href ng-click="panel.selectTab(2)">Specifications</a>
-				</li>
-				<li ng-class="{ active:panel.isSelected(3) }">
-					<a href ng-click="panel.selectTab(3)">Reviews</a>
-				</li>
-			</ul>
-			<div class="panel" ng-show="panel.isSelected(1)">
-				<h4>Description</h4>
-				<p>{{product.description}}</p>
-			</div>
-			<div class="panel" ng-show="panel.isSelected(2)">
-				<h4>Specifications</h4>
-				<p>Specifications not available</p>
-			</div>
-			<div class="panel" ng-show="panel.isSelected(3)">
-				<h4>Reviews</h4>
-				<blockquote ng-repeat="review in product.reviews">
-					<b>Stars: {{review.stars}}</b><br>
-					{{review.body}}<br>
-					<cite>by: {{review.author}}</cite>
-				</blockquote>
-				<form name="reviewForm" ng-controller="ReviewController as reviewCTRL" ng-submit="reviewForm.$valid && reviewCTRL.addReview(product)" novalidate>
-				<h4>Your Review</h4>
-				<blockquote>
-					<b>{{reviewCTRL.review.stars}}</b><br>
-					{{reviewCTRL.review.body}}<br>
-					<cite>{{reviewCTRL.review.author}}</cite>
-				</blockquote>
-				<select ng-model="reviewCTRL.review.stars" required>
-					<option>1 star</option>
-					<option>2 stars</option>
-					<option selected>3 stars</option>
-					<option>4 stars</option>
-					<option>5 stars</option>
-				</select><br>
-				<textarea ng-model="reviewCTRL.review.body" placeholder="Your generous opinion!" required></textarea><br>
-				<label>by: </label>
-				<input ng-model="reviewCTRL.review.author" type="email" placeholder="your email, eg: xyz@abc.com" required><br>
-				<div>Review form is {{reviewForm.$valid}}</div>
-				<input type="submit" value="submit">
-				</form>
-			</div>
-		</section>
+		<product-panels ng-controller="PanelController as panel"></product-panels>
 		<button ng-show="product.canPurchase">Add to Cart</button>
 	</div>
 </body>

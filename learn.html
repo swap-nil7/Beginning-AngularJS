@@ -8,6 +8,7 @@
 <body style="margin: 10px" ng-controller="StoreController as store">
 	<script type="text/javascript" src="angular.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="product.js"></script>
 	<div ng-repeat="product in store.products">
 		<product-title></product-title>
 		<product-panels ng-controller="PanelController as panel"></product-panels>
